@@ -30,16 +30,12 @@ Classification of sea ice and water in SAR imagery using a CNN and K-Means clust
   - Organizes extracted windows and features into arrays suitable for training machine learning models using the `prepare_dataset` function.
   - K-Means Clustering: The code concatenates image windows and GLCM features into a single dataset and applies K-Means clustering with two clusters. It assumes that cluster 0 represents water and cluster 1 represents sea ice, mapping the labels accordingly.
 
-## 5. Model Definition
+## 5. Model Definition & compilation
 - **Purpose:** Constructs a convolutional neural network (CNN) model for classification tasks.
 - **Details:**
   - Creates two input branches: one for image windows and another for extracted GLCM features.
   - The image branch consists of several convolutional layers, max pooling layers, and dropout layers, flattening into a dense layer.
   - The GLCM features branch contains dense layers to process the numerical feature set.
   - Outputs from both branches are concatenated and passed through additional dense layers, culminating in a final output layer with a sigmoid activation function for binary classification.
+  - Utilized the Adam optimizer and binary cross-entropy loss function, suitable for binary classification tasks.
 
-## 6. Model Compilation and Summary
-- **Purpose:** Finalizes the model setup and prepares it for training.
-- **Details:**
-  - Compiles the model using the Adam optimizer and binary cross-entropy loss function, suitable for binary classification tasks.
-  - Prints a summary of the model architecture, providing insights into the number of layers
